@@ -1,0 +1,176 @@
+<!-- <!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link rel="stylesheet" href="./styles/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>forms</title>
+</head>
+
+<body>
+
+
+    <div class="container m-5">
+
+        <div class="row justify-content">
+            <form>
+                <div class="col col-lg-4">
+                    <fieldset>
+                        <legend>Cadastre-se</legend>
+                        <div>
+                            <label for="nome" class="form-label mt-4">Nome completo</label>
+                            <input type="text" class="form-control" id="nome" aria-describedby="nomeHelp"
+                                placeholder="Insira seu nome aqui">
+                        </div>
+                        <div>
+                            <label for="guerra" class="form-label mt-4">Nome de guerra</label>
+                            <input type="text" class="form-control" id="guerra" aria-describedby="guerraHelp"
+                                placeholder="Insira seu nome de guerra aqui">
+                        </div>
+                        <div>
+                            <label for="graduacao" class="form-label mt-4">Selecione a graduação</label>
+                            <select class="form-select" id="exampleSelect1">
+                                <option>...</option>
+                                <option>Soldado</option>
+                                <option>Cabo</option>
+                                <option>Sargento</option>
+                                <option>Subtenente</option>
+                                <option>Subtenente</option>
+                                <option>2° Tenente</option>
+                                <option>1° Tenente</option>
+                                <option>Capitão</option>
+                                <option>Major</option>
+                                <option>Tenente coronel</option>
+                                <option>Coronel</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="cpf" class="form-label mt-4">CPF</label>
+                            <input type="int" class="form-control" id="cpf" aria-describedby="cpfHelp"
+                                placeholder="Insira seu cpf aqui">
+                        </div>
+                        <div>
+                            <label for="rg" class="form-label mt-4">RG</label>
+                            <input type="text" class="form-control" id="rg" aria-describedby="rgHelp"
+                                placeholder="Insira seu rg aqui">
+                        </div>
+                        <div>
+                            <label for="nasc" class="form-label mt-4">Data de nascimento</label>
+                            <input type="date" class="form-control" id="nasc" aria-describedby="nascHelp"
+                                placeholder="Insira sua data de nascimento aqui">
+                        </div>
+                        <div>
+                            <label for="lotacao" class="form-label mt-4">Lotação</label>
+                            <input type="text" class="form-control" id="lotacao" aria-describedby="lotacaoHelp"
+                                placeholder="Insira sua lotação aqui">
+                        </div>
+                        <div>
+                            <label for="matricula" class="form-label mt-4">Matrícula</label>
+                            <input type="text" class="form-control" id="matricula" aria-describedby="matriculaHelp"
+                                placeholder="Insira sua matrícula aqui">
+                        </div>
+                        <div>
+                            <label for="cfsd" class="form-label mt-4">CFP/CFSD</label>
+                            <input type="text" class="form-control" id="cfsd" aria-describedby="cfsdaHelp"
+                                placeholder="Insira aqui">
+                        </div>
+                    </fieldset>
+
+                </div>
+
+                <div class="col col-lg-4">
+
+                    <fieldset>
+                        <div>
+                            <label for="tel" class="form-label mt-4">Telefone</label>
+                            <input type="int" class="form-control" id="tel" aria-describedby="telHelp"
+                                placeholder="Insira seu número aqui">
+                        </div>
+                        <div>
+                            <label for="email" class="form-label mt-4">Email</label>
+                            <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
+                                placeholder="Insira seu email aqui">
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend class="mt-4">Selecione o gênero</legend>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="optionsRadios" id="optionsRadios1"
+                                value="option1" checked="">
+                            <label class="form-check-label" for="optionsRadios1">
+                                Masculino
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="optionsRadios" id="optionsRadios2"
+                                value="option2">
+                            <label class="form-check-label" for="optionsRadios2">
+                                Feminino
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend class="mt-4">PM ou BM</legend>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="optionsRadios" id="optionsRadios1"
+                                value="option1" checked="">
+                            <label class="form-check-label" for="optionsRadios1">
+                                PM
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="optionsRadios" id="optionsRadios2"
+                                value="option2">
+                            <label class="form-check-label" for="optionsRadios2">
+                                BM
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend class="mt-4">Dependentes</legend>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                            <label class="form-check-label" for="flexSwitchCheckDefault">Sim</label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend class="mt-4">Checkboxes</legend>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Default checkbox
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked="">
+                            <label class="form-check-label" for="flexCheckChecked">
+                                Checked checkbox
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend class="mt-4">Ranges</legend>
+                        <label for="customRange1" class="form-label">Example range</label>
+                        <input type="range" class="form-range" id="customRange1">
+                        <label for="disabledRange" class="form-label">Disabled range</label>
+                        <input type="range" class="form-range" id="disabledRange" disabled="">
+                        <label for="customRange3" class="form-label">Example range</label>
+                        <input type="range" class="form-range" min="0" max="5" step="0.5" id="customRange3">
+                    </fieldset>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    </fieldset>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html> -->
