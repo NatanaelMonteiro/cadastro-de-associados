@@ -1,0 +1,52 @@
+/*  
+  -------------------------------------------
+  -----      CSS for the font used      -----
+  -------------------------------------------
+*/
+
+@import url('./font/inter.css');
+
+body {
+    font-family: 'Inter var', sans-serif;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+
+
+/*  
+  ------------------------------------------- 
+  -----      CSS for the preloader      -----
+  -------------------------------------------
+*/
+
+.loader-wrapper {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    bottom: 0 !important;
+    right: 0 !important;
+    background-color: rgba(var(--bs-body-bg-rgb), 1) !important;
+    display: flex;
+    justify-content: center !important;
+    align-items: center !important;
+    z-index: 2000 !important;
+}
+
+.enabled {
+  pointer-events: all;
+  cursor: pointer
+}
+
+.disabled {
+  color: #aaa;
+  pointer-events: none;
+}
+
+button.bs-placeholder[role='button']>span{
+  color:#f00;
+}
+
+a.placeholder, button.bs-placeholder {
+  font-style: italic !important;
+  color: #f00 !important;
+}

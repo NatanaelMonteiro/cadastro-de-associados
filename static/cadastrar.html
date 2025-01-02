@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-bs-theme="dark">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/static/assets/libraries/aos/aos.css">
+    <link rel="stylesheet" href="/static/assets/css/main.css">
+    <link rel="stylesheet" href="/static/assets/css/style.css">
+
+    <title> FENEPE-DF - Cadastrar Participante </title>
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/img/fenepe_icon.png">
+    <link rel="canonical" href="index.html">
+</head>
+
+<body>
+    <header class="position-fixed top-0 z-3 m-0 p-2 w-100" data-bs-theme="dark">
+        <nav class="position-fixed w-100 px-3 py-2 navbar navbar-expand-xl" aria-label="Offcanvas navbar large">
+            <div class="d-flex pe-5 w-100 flex-row justify-content-between align-items-center">
+                <div>
+                    <a href="./index.html" class="navbar-brand img-rounded">
+                        <img src="./assets/img/fenepe_icon.png" height="120" alt="logo">
+                    </a>
+                </div>
+                <div class="offcanvas offcanvas-end border-0 rounded-start-0 rounded-start-sm-4" tabindex="-1"
+                    id="offcanvasNavbar2" aria-labelledby="offcanvasNavbar2Label">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title m-0" id="offcanvasNavbar2Label">
+                            <a class="navbar-brand" href="index.html">
+                                <img src="./assets/img/fenepe_icon.png" height="64" alt="logo">
+                            </a>
+                        </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav align-items-xl-center flex-grow-1 column-gap-5 row-gap-3 row-gap-xl-3">
+                            <li class="nav-item ms-xl-auto">
+                                <a href="index.html"
+                                    class="px-3 text-white bg-primary-hover nav-link rounded-3 text-base leading-6 fw-semibold"
+                                    aria-current="page">
+                                    Home
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="index.html#about"
+                                    class="px-3 text-white bg-primary-hover nav-link rounded-3 text-base leading-6 fw-semibold">
+                                    Fenepe
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="index.html#footer"
+                                    class="px-3 text-white bg-primary-hover nav-link rounded-3 text-base leading-6 fw-semibold">
+                                    Contato
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/user/logout"
+                                    class="px-3 text-white bg-primary nav-link rounded-3 text-base leading-6 fw-semibold text-center">
+                                    Sair
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="position-fixed top-0 h-25 w-100 m-0 shadow">
+        <img src="./assets/img/armas.png" class="position-absolute z-n1 top-0 h-100 w-100 object-fit-cover"
+            alt="Meeting">
+        <div class="position-absolute z-n1 top-0 h-100 w-100 bg-dark"
+            style="opacity: 0.85; mix-blend-mode: multiply; filter: contrast(1.15) brightness(0.85);">
+        </div>
+    </div>
+
+    <div class="container-fluid">
+
+        <!-- <div hx-get="/api/members/exists" hx-trigger="load" hx-target="#email"></div> -->
+
+        <form id="form" class="m-5 p-3 w-100">
+            <div class="d-flex flex-row w-100 justify-content-center">
+                <div class="d-flex flex-column col-lg-4 m-3 pt-5">
+                    <fieldset>
+                        <div>
+                            <label for="nome" class="form-label mt-5">Nome completo</label>
+                            <input type="text" class="form-control" id="nome" name="nome" aria-describedby="nomeHelp"
+                                placeholder="Insira seu nome aqui">
+                        </div>
+                        <div>
+                            <label for="nome_guerra" class="form-label mt-4">Nome de guerra</label>
+                            <input type="text" class="form-control" id="nome_guerra" name="nome_guerra"
+                                aria-describedby="guerraHelp" placeholder="Insira seu nome de guerra aqui">
+                        </div>
+
+                        <div>
+                            <label for="patente" class="form-label mt-4">Graduação</label>
+                            <select class="form-select text-muted" id="patente" name="patente">
+                                <option selected disabled value="">Selecione a graduação</option>
+                                <option>Soldado</option>
+                                <option>Cabo</option>
+                                <option>Sargento</option>
+                                <option>Subtenente</option>
+                                <option>Subtenente</option>
+                                <option>2° Tenente</option>
+                                <option>1° Tenente</option>
+                                <option>Capitão</option>
+                                <option>Major</option>
+                                <option>Tenente coronel</option>
+                                <option>Coronel</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="cpf" class="form-label mt-4">CPF</label>
+                            <input type="int" class="form-control" id="cpf" name="cpf" aria-describedby="cpfHelp"
+                                placeholder="Insira seu cpf aqui">
+                        </div>
+                        <div>
+                            <label for="rg" class="form-label mt-4">RG</label>
+                            <input type="text" class="form-control" id="rg" name="rg" aria-describedby="rgHelp"
+                                placeholder="Insira seu rg aqui">
+                        </div>
+                        <div>
+                            <label for="dt_nasc" class="form-label mt-4">Data de nascimento</label>
+                            <input type="date" class="form-control text-muted" id="dt_nasc" name="dt_nasc"
+                                aria-describedby="nascHelp" placeholder="Insira sua data de nascimento aqui">
+                        </div>
+                        <div>
+                            <label for="lotacao" class="form-label mt-4">Lotação</label>
+                            <input type="text" class="form-control" id="lotacao" name="lotacao"
+                                aria-describedby="lotacaoHelp" placeholder="Insira sua lotação aqui">
+                        </div>
+                        <div>
+                            <label for="matricula" class="form-label mt-4">Matrícula</label>
+                            <input type="text" class="form-control" id="matricula" name="matricula"
+                                aria-describedby="matriculaHelp" placeholder="Insira sua matrícula aqui">
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div class="d-flex flex-column col-lg-4 m-3 pt-5">
+                    <fieldset>
+                        <div>
+                            <label for="cfsd" class="form-label mt-5">CFP/CFSD</label>
+                            <input type="text" class="form-control" id="cfsd" name="cfp_cfsd"
+                                aria-describedby="cfsdaHelp" placeholder="Insira aqui">
+                        </div>
+                        <div>
+                            <label for="telefone" class="form-label mt-4">Telefone</label>
+                            <input type="int" class="form-control" id="telefone" name="telefone"
+                                aria-describedby="telHelp" placeholder="Insira seu número aqui">
+                        </div>
+                        <div>
+                            <label for="email" class="form-label mt-4">Email</label>
+                            <span id="email" class="email"></span>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <label class="mt-3">Selecione o gênero</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" id="masculino" name="genero" value="masculino">
+                            <label class="form-check-label" for="masculino">
+                                Masculino
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" id="feminino" name="genero" value="feminino">
+                            <label class="form-check-label" for="feminino">
+                                Feminino
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <label class="mt-3">PM ou BM</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="pm_bm" id="pm" value="pm">
+                            <label class="form-check-label" for="pm">
+                                PM
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="pm_bm" id="bm" value="bm">
+                            <label class="form-check-label" for="bm">
+                                BM
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <label class="mt-3">Dependentes</label>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="dependentes" name="dependentes">
+                            <label class="form-check-label" for="dependentes">Sim</label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <label class="mt-3">Situação</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" id="ativo" name="situacao" value="ativo">
+                            <label class="form-check-label" for="ativo">
+                                Ativo
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" id="inativo" name="situacao" value="inativo">
+                            <label class="form-check-label" for="inativo">
+                                Inativo
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="situacao" id="perseguicao"
+                                value="perseguicao">
+                            <label class="form-check-label" for="perseguicao">
+                                Expulso por perseguição
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <div class="py-4 form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="confimacao" onclick="confirme(event)">
+                            <label class="mt-3">
+                                Confirmo estar ciente e de acordo com o estatuto da FENEPE, e da minha
+                                adesão a FENEPE-DF
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <div class="d-flex flex-row justify-content-end px-4">
+                        <fieldset>
+                            <button id="btn-salvar" class="btn text-white bg-primary disabled" type="button"
+                                hx-post="/api/members/add" hx-target="#toast-message" hx-include="#form">Salvar</button>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="toast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div id="toast-header" class="toast-header">
+                <strong id="title-msg" class="me-auto">Aviso</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                <span id="toast-message"></span>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/htmx.org@1.9.10"
+        integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC"
+        crossorigin="anonymous"></script>
+    <script src="./assets/libraries/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/libraries/aos/aos.js"></script>
+    <script src="./assets/js/scripts.js"></script>
+    <script src="./assets/js/color-modes.js"></script>
+    <script src="./assets/js/functions.js"></script>
+
+</body>
+
+</html>
