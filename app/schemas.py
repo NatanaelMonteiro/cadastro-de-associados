@@ -12,6 +12,6 @@ class User(BaseModel):
         padrao = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
 
         if not bool(re.match(padrao, value)):
-            raise ValueError("Invalid user email")
+            raise ValueError("Email inválido.")
         
         return value

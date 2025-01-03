@@ -18,27 +18,28 @@ crypt_context = CryptContext(schemes=["sha256_crypt"])
 
 invalid_token = HTTPException(
     status_code=status.HTTP_401_UNAUTHORIZED,
-    detail="User is not authenticated",
+    detail="Usuário não autenticado.",
     headers={"WWW-Authenticate": "Bearer"},
 )
 
 invalid_usr_or_pass = HTTPException(
     status_code=status.HTTP_401_UNAUTHORIZED,
-    detail="Invalid username or password",
+    detail="Email ou senha inválidos.",
 )
 
 insufficient_permissions = HTTPException(
     status_code=status.HTTP_403_FORBIDDEN,
-    detail="User insufficient permission",
+    detail="O usuário sem permissão.",
 )
 
 user_already_exists = HTTPException(
-    status_code=status.HTTP_400_BAD_REQUEST, detail="User already exists"
+    status_code=status.HTTP_400_BAD_REQUEST, detail="Email já cadastrado."
 )
 
 invalid_user_name = HTTPException(
-    status_code=status.HTTP_400_BAD_REQUEST, detail="Invalid user name"
+    status_code=status.HTTP_400_BAD_REQUEST, detail="Email inválido."
 )
+
 
 class UserServices:
     def __init__(self, db_session: Session):
@@ -55,7 +56,10 @@ class UserServices:
         return user_on_db
 
     def get_users_list(self):
-        users = self.db_session.query(UserModel.id, UserModel.username).all()
+        users = self.db_session.query(
+            UserModel.id, UserModel.username, UserModel.permissions
+        ).all()
+        
         return self.as_dict(users)
 
     # registrar usuário do sistema
@@ -64,7 +68,9 @@ class UserServices:
 
         try:
             user = User(
-                username=form_data.get("username"), password=form_data.get("password"), permissions=""
+                username=form_data.get("username"),
+                password=form_data.get("password"),
+                permissions="",
             )
         except:
             raise invalid_user_name

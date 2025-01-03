@@ -10,6 +10,11 @@ from app.schemas import User
 
 user = APIRouter(prefix="/user")
 
+INDEX_URL = """<script>location.href="/static/index.html"</script>"""
+CADAS_URL = """<script>location.href="/static/cadastrar.html"</script>"""
+LOGIN_URL = """<a class="login" href="/static/login.html">Entrar</a>"""
+LOGOUT_URL = """<a class="logout" href="/user/logout">Sair</a>"""
+
 
 @user.post("/register")
 def user_register(
@@ -18,9 +23,7 @@ def user_register(
 ):
     service = UserServices(db_session=db_session)
     service.user_register(form_data)
-
-    html = "<script>location.href='/static/cadastrar.html'</script>"
-    response = HTMLResponse(html, status_code=status.HTTP_200_OK)
+    response = HTMLResponse(CADAS_URL, status_code=status.HTTP_200_OK)
 
     user = User(
         username=form_data.get("username"),
@@ -55,13 +58,12 @@ def user_register(
         )
     except ValueError:
         raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST, detail="Invalid user email"
+            status_code=status.HTTP_400_BAD_REQUEST, detail="Email inválido."
         )
 
     jwt_token = service.user_login(user=user)
 
-    html = "<script>location.href='/static/index.html'</script>"
-    response = HTMLResponse(html, status_code=status.HTTP_200_OK)
+    response = HTMLResponse(INDEX_URL, status_code=status.HTTP_200_OK)
 
     response.set_cookie(
         key="access_token",
@@ -78,7 +80,7 @@ def user_register(
 
 @user.get("/logout")
 async def logout(request: Request):
-    response = HTMLResponse("<script>location.href='/static/index.html'</script>")
+    response = HTMLResponse(INDEX_URL, status_code=status.HTTP_200_OK)
     response.delete_cookie("access_token")
     return response
 
@@ -86,25 +88,7 @@ async def logout(request: Request):
 @user.get("/is_login", response_class=HTMLResponse)
 async def is_login(request: Request, db_session=Depends(get_db_session)):
     try:
-        token = token_verifier(request)
-        service = UserServices(db_session=db_session)
-        user = token.get("sub")
-        service = MemberServices(db_session)
-        member = service.get_member(user)
-
-        # if member is None:
-        #     return HTMLResponse("<script>location.href='/static/index.html'</script>")
-        # else:
-        return """
-            <a href="/user/logout"
-                class="px-3 text-white bg-primary nav-link rounded-3 text-base leading-6 fw-semibold text-center">
-                Sair
-            </a>
-            """
+        token_verifier(request)
+        return LOGOUT_URL
     except:
-        return """
-            <a href="/static/login.html"
-                class="px-3 text-white bg-primary nav-link rounded-3 text-base leading-6 fw-semibold text-center">
-                Entrar
-            </a>
-            """
+        return LOGIN_URL

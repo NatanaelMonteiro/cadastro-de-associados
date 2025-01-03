@@ -15,12 +15,12 @@ crypt_context = CryptContext(schemes=["sha256_crypt"])
 
 
 user_already_exists = HTTPException(
-    status_code=status.HTTP_400_BAD_REQUEST, detail="User already exists"
+    status_code=status.HTTP_400_BAD_REQUEST, detail="Este email já está cadastrado."
 )
 
 
 invalid_fields_len = HTTPException(
-    status_code=status.HTTP_400_BAD_REQUEST, detail="All fields must be filled in"
+    status_code=status.HTTP_400_BAD_REQUEST, detail="Todos os campos do formulário devem ser preenchidos."
 )
 
 
