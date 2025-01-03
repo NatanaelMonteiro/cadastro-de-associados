@@ -14,7 +14,8 @@ INDEX_URL = """<script>location.href="/static/index.html"</script>"""
 CADAS_URL = """<script>location.href="/static/cadastrar.html"</script>"""
 LOGIN_URL = """<a class="login" href="/static/login.html">Entrar</a>"""
 LOGOUT_URL = """<a class="logout" href="/user/logout">Sair</a>"""
-
+JOINUS_URL = """<a class="login" href="/static/login.html">Junte-se a nós!</a>"""
+WELCOME_URL = """<a href="#about" class="about">Seja bem vindo!</a>"""
 
 @user.post("/register")
 def user_register(
@@ -92,3 +93,12 @@ async def is_login(request: Request, db_session=Depends(get_db_session)):
         return LOGOUT_URL
     except:
         return LOGIN_URL
+
+
+@user.get("/welcome", response_class=HTMLResponse)
+async def is_login(request: Request, db_session=Depends(get_db_session)):
+    try:
+        token_verifier(request)
+        return WELCOME_URL
+    except:
+        return JOINUS_URL

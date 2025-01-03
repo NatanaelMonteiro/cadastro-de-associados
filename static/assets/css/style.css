@@ -11,8 +11,6 @@ body {
   font-feature-settings: "cv02", "cv03", "cv04", "cv11";
 }
 
-
-
 /*  
   ------------------------------------------- 
   -----      CSS for the preloader      -----
@@ -31,6 +29,8 @@ body {
   align-items: center !important;
   z-index: 2000 !important;
 }
+
+
 
 .enabled {
   pointer-events: all;
@@ -68,4 +68,9 @@ button.bs-placeholder {
 .logout:hover,
 .btn:hover {
   text-shadow: 0px 0px 9px rgba(255, 255, 255, 0.78);
+}
+
+.about{
+  text-decoration: none;
+  color: rgba(var(--bs-white-rgb));
 }

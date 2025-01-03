@@ -25,7 +25,7 @@
         <nav class="navbar navbar-expand-xl" aria-label="Offcanvas navbar large">
             <div class="container py-1">
                 <a href="./index.html" class="navbar-brand img-rounded">
-                    <img src="./assets/img/fenepe_icon.png" height="120" alt="logo">
+                    <img src="./assets/img/fenepe_icon.png" width="100" alt="logo">
                 </a>
 
                 <div class="offcanvas offcanvas-end border-0 rounded-start-0 rounded-start-sm-4" tabindex="-1"
@@ -127,10 +127,9 @@
                 <div class="mt-3 text-body-emphasis text-4xl leading-snug tracking-tight fw-bold">
                     JUNTOS SOMOS MAIS FORTES
                 </div>
-                <div class="mt-5 mb-3">
-                    <button class="btn btn-primary text-white px-5">
-                        Junte-se a nós
-                    </button>
+                <div hx-get="/user/welcome" hx-trigger="load"
+                    class="my-5 px-3 btn btn-primary bg-primary-hover rounded-3 leading-6 fw-semibold">
+                    <!-- Seja bem vindo! -->
                 </div>
             </div>
         </div>
@@ -168,13 +167,13 @@
                     <div class="accordion" id="accordionFlushExample">
                         <div class="accordion-item border-0">
                             <h2 class="accordion-header" id="flush-headingOne">
-                                <button class="accordion-button h2 shadow-none" type="button" data-bs-toggle="collapse"
+                                <button class="accordion-button collapsed h2 shadow-none" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#flush-collapseOne" aria-expanded="false"
                                     aria-controls="flush-collapseOne">
                                     Como me cadastro?
                                 </button>
                             </h2>
-                            <div id="flush-collapseOne" class="accordion-collapse collapse show"
+                            <div id="flush-collapseOne" class="accordion-collapse collapse"
                                 aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                                 <div class="accordion-body text-body-secondary lh-lg">
                                     Você pode se cadastrar clicando no botão <b>Entrar</b> no topo desta página ou
@@ -214,7 +213,9 @@
 
                                     DIRETOR DE ASSUNTOS LEGISLATIVO - César Luiz Pinheiro Smith; <br>
 
-                                    DIRETOR DA REGIONAL DA REGIÃO SUDESTE - Silvio Luiz Rodrigues ramalho.
+                                    DIRETOR DA REGIONAL DA REGIÃO SUDESTE - Silvio Luiz Rodrigues ramalho; <br>
+
+                                    <a href="#">DIRETOR DA REGIONAL DF - Vitório.</a>
                                 </div>
                             </div>
                         </div>
