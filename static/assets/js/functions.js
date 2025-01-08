@@ -1,21 +1,11 @@
-function setTooltips() {
-    let tooltips = document.querySelectorAll('[data-toggle="tooltip"]');
-
-    for (let i = 0; i < tooltips.length; i++) {
-        let tooltip = new bootstrap.Tooltip(tooltips[i]);
-    }
-}
-
-window.addEventListener('DOMContentLoaded', function () {
-    setTooltips();
-}, false);
-
 document.addEventListener('htmx:afterRequest', evt => {
     var msg = evt.detail.xhr.responseText
     const status = evt.detail.xhr.status
     const warning = status >= 300
 
-    if (status == 201 || status >= 400) {
+    setTooltips();
+
+    if (status >= 400) {
         if (msg) {
             msg = msg.split(":")[1]
         }
@@ -25,7 +15,28 @@ document.addEventListener('htmx:afterRequest', evt => {
         }
         showToast(msg, warning)
     }
+
+    if (status > 200) {
+        console.log(msg);
+        
+        // if (msg) {
+        //     msg = msg.split(":")[1]
+        // }
+
+        // if (status == 422) {
+        //     msg = "Dados do usuário inválidos ou não informados."
+        // }
+        showToast(msg, warning)
+    }
 })
+
+function setTooltips() {
+    let tooltips = document.querySelectorAll('[data-toggle="tooltip"]');
+
+    for (let i = 0; i < tooltips.length; i++) {
+        let tooltip = new bootstrap.Tooltip(tooltips[i]);
+    }
+}
 
 function showToast(msg, warning) {
     if (msg) {
@@ -61,3 +72,14 @@ function confirme(event) {
         elm.classList.replace("enabled", "disabled")
     }
 }
+
+function defaultSelectOption(id, defaultValue) {
+    const select = document.getElementById(id);
+    select.value = defaultValue;
+}
+
+function defaultRadioOption(id, defaultValue) {
+    const select = document.getElementById(id);
+    select.checked = (id == defaultValue);
+};
+

@@ -30,7 +30,30 @@ body {
   z-index: 2000 !important;
 }
 
+@media screen and (width >= 762px) {
+  .w-md-25 {
+    width: 25% !important;
+  }
 
+}
+
+@media screen and (width < 992px) {
+  .bg-blur {
+    padding-bottom: 30px !important;
+    background-color: rgba(0, 0, 0, 0.3);
+    border: solid 0.3px rgba(0, 0, 0, 0.85);
+    box-shadow: 2px 2px 10px -5px rgba(255,255,255,0.1);
+    border-radius: 15px;
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+  }
+}
+
+@media screen and (width >= 992px) {
+  .w-lg-100 {
+    width: 100% !important;
+  }
+}
 
 .enabled {
   pointer-events: all;
@@ -56,21 +79,17 @@ button.bs-placeholder {
   padding: 0.375rem 0.75rem;
 }
 
-.admin,
-.login,
-.logout {
+.link {
   text-decoration: none;
   color: rgb(var(--bs-white-rgb));
 }
 
-.admin:hover,
-.login:hover,
-.logout:hover,
+.link:hover,
 .btn:hover {
   text-shadow: 0px 0px 9px rgba(255, 255, 255, 0.78);
 }
 
-.about{
+.about {
   text-decoration: none;
   color: rgba(var(--bs-white-rgb));
 }

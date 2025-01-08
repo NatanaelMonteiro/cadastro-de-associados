@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Depends, Request, HTTPException, status
-from fastapi.responses import HTMLResponse
+from fastapi.responses import HTMLResponse, JSONResponse
 from fastapi.encoders import jsonable_encoder
 from fastapi.security import OAuth2PasswordRequestForm
 from sqlalchemy.orm import Session
@@ -12,10 +12,11 @@ user = APIRouter(prefix="/user")
 
 INDEX_URL = """<script>location.href="/static/index.html"</script>"""
 CADAS_URL = """<script>location.href="/static/cadastrar.html"</script>"""
-LOGIN_URL = """<a class="login" href="/static/login.html">Entrar</a>"""
-LOGOUT_URL = """<a class="logout" href="/user/logout">Sair</a>"""
-JOINUS_URL = """<a class="login" href="/static/login.html">Junte-se a nós!</a>"""
-WELCOME_URL = """<a href="#about" class="about">Seja bem vindo!</a>"""
+LOGIN_URL = """<a class="link" href="/static/login.html">Entrar</a>"""
+LOGOUT_URL = """<a class="link" href="/user/logout">Sair</a>"""
+JOINUS_URL = """<a class="link" href="/static/login.html">Junte-se a nós!</a>"""
+WELCOME_URL = """<a class="about" href="#about">Seja bem vindo!</a>"""
+
 
 @user.post("/register")
 def user_register(
@@ -93,6 +94,15 @@ async def is_login(request: Request, db_session=Depends(get_db_session)):
         return LOGOUT_URL
     except:
         return LOGIN_URL
+
+
+@user.get("/is_logged")
+async def is_logged(request: Request, db_session=Depends(get_db_session)):
+    try:
+        token_verifier(request)
+        return JSONResponse({"msg": "OK"})
+    except:
+        return JSONResponse(None)
 
 
 @user.get("/welcome", response_class=HTMLResponse)

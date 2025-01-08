@@ -21,65 +21,66 @@
         </div>
     </div>
 
-    <header class="position-absolute z-3 mt-3 w-100" data-bs-theme="dark">
-        <nav class="navbar navbar-expand-xl" aria-label="Offcanvas navbar large">
-            <div class="container py-1">
-                <a href="./index.html" class="navbar-brand img-rounded">
-                    <img src="./assets/img/fenepe_icon.png" width="100" alt="logo">
+    <header class="position-absolute z-3 mt-3 px-5 w-100" data-bs-theme="dark">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a href="/static/index.html" class="navbar-brand img-rounded">
+                    <img src="/static/assets/img/fenepe_icon.png" width="100" alt="logo">
                 </a>
 
-                <div class="offcanvas offcanvas-end border-0 rounded-start-0 rounded-start-sm-4" tabindex="-1"
-                    id="offcanvasNavbar2" aria-labelledby="offcanvasNavbar2Label">
-                    <div class="offcanvas-header">
-                        <h5 class="offcanvas-title m-0" id="offcanvasNavbar2Label">
-                            <a class="navbar-brand" href="index.html">
-                                <img src="./assets/img/fenepe_icon.png" height="64" alt="logo">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                    aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div id="navbarText" class="container-fluid bg-blur py-3 mx-auto w-50 w-md-25 w-lg-100 navbar-collapse">
+                    <ul class="navbar-nav align-items-center mx-auto w-50 w-md-25 w-lg-100 text-center gap-3 row-gap-3">
+                        <li class="nav-item w-100">
+                            <a href="index.html"
+                                class="px-3 text-white bg-primary-hover nav-link rounded-3 text-base leading-6 fw-semibold"
+                                aria-current="page">
+                                Home
                             </a>
-                        </h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                    </div>
+                        </li>
 
-                    <div class="offcanvas-body">
-                        <ul class="navbar-nav align-items-xl-center flex-grow-1 column-gap-5 row-gap-3 row-gap-xl-3">
-                            <li class="nav-item ms-xl-auto">
-                                <a href="index.html"
-                                    class="px-3 text-white bg-primary-hover nav-link rounded-3 text-base leading-6 fw-semibold"
-                                    aria-current="page">
-                                    Home
-                                </a>
-                            </li>
+                        <li class="nav-item w-100">
+                            <div hx-get="/api/members/exists" hx-trigger="load"
+                                class="px-3 nav-link text-white bg-primary-hover rounded-3 leading-6 fw-semibold">
+                                <a class="link" href="login.html">Cadastro</a>
+                            </div>
+                        </li>
 
-                            <li class="nav-item">
-                                <a href="#about"
-                                    class="px-3 text-white bg-primary-hover nav-link rounded-3 text-base leading-6 fw-semibold">
-                                    Fenepe
-                                </a>
-                            </li>
+                        <li class="nav-item w-100">
+                            <a href="#about"
+                                class="px-3 text-white bg-primary-hover nav-link rounded-3 text-base leading-6 fw-semibold">
+                                Fenepe
+                            </a>
+                        </li>
 
-                            <li class="nav-item">
-                                <a href="#footer"
-                                    class="px-3 text-white bg-primary-hover nav-link rounded-3 text-base leading-6 fw-semibold">
-                                    Contato
-                                </a>
-                            </li>
+                        <li class="nav-item w-100">
+                            <a href="#footer"
+                                class="px-3 text-white bg-primary-hover nav-link rounded-3 text-base leading-6 fw-semibold">
+                                Contato
+                            </a>
+                        </li>
 
-                            <li class="nav-item">
-                                <div hx-get="/admin/admin_page" hx-trigger="load"
-                                    class="px-3 nav-link text-white bg-primary-hover rounded-3 leading-6 fw-semibold">
-                                    <!-- Área restrita -->
-                                </div>
-                            </li>
+                        <li class="nav-item w-100">
+                            <div hx-get="/admin/admin_page" hx-trigger="load"
+                                class="px-3 nav-link text-white bg-primary-hover rounded-3 leading-6 fw-semibold">
+                                <!-- Área restrita -->
+                            </div>
+                        </li>
 
-                            <li class="nav-item ms-xl-auto">
-                                <div class="px-3 nav-link text-white bg-primary rounded-3 leading-6 fw-semibold"
-                                    hx-get="/user/is_login" hx-trigger="load">
-                                    <!-- Exibir botão Login/Logout -->
-                                </div>
-                            </li>
+                        <li class="nav-item w-100">
+                            <div class="px-3 nav-link text-white bg-primary rounded-3 leading-6 fw-semibold"
+                                hx-get="/user/is_login" hx-trigger="load">
+                                <!-- Exibir botão Login/Logout -->
+                            </div>
+                        </li>
 
-                        </ul>
-                    </div>
+                    </ul>
                 </div>
+            </div>
             </div>
         </nav>
     </header>
@@ -162,24 +163,42 @@
                     </div>
                 </div>
 
-
-                <div class="col-12 mt-8 md-6 col-lg-6 col-xl-5">
+                <div class="col-12 mt-8 col-sm-10 col-lg-5">
                     <div class="accordion" id="accordionFlushExample">
                         <div class="accordion-item border-0">
                             <h2 class="accordion-header" id="flush-headingOne">
-                                <button class="accordion-button collapsed h2 shadow-none" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#flush-collapseOne" aria-expanded="false"
-                                    aria-controls="flush-collapseOne">
-                                    Como me cadastro?
+                                <button class="accordion-button collapsed h2 shadow-none" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#flush-collapseCadastro"
+                                    aria-expanded="false" aria-controls="flush-collapseOne">
+                                    Como faço para me cadastrar?
                                 </button>
                             </h2>
-                            <div id="flush-collapseOne" class="accordion-collapse collapse"
+                            <div id="flush-collapseCadastro" class="accordion-collapse collapse"
                                 aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                                 <div class="accordion-body text-body-secondary lh-lg">
                                     Você pode se cadastrar clicando no botão <b>Entrar</b> no topo desta página ou
-                                    clicando no link abaixo: <br>
+                                    clicando no link abaixo:<br>
                                     <a class="text-decoration-none" href="login.html">Clique aqui.</a>
 
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="opacity-10">
+
+                        <div class="accordion-item border-0">
+                            <h2 class="accordion-header" id="flush-headingOne">
+                                <button class="accordion-button collapsed h2 shadow-none" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#flush-collapseEdit" aria-expanded="false"
+                                    aria-controls="flush-collapseOne">
+                                    Como consultar ou alterar o cadastro?
+                                </button>
+                            </h2>
+                            <div id="flush-collapseEdit" class="accordion-collapse collapse"
+                                aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body text-body-secondary lh-lg">
+                                    Depios de se autenticar, clicando no botão <b>Entrar</b>, clique no menu
+                                    <b>Cadastro</b> no topo desta página.
                                 </div>
                             </div>
                         </div>

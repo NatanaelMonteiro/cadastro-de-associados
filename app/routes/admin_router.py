@@ -9,7 +9,7 @@ admin = APIRouter(prefix="/admin", dependencies=[Depends(admin_verifier)])
 
 @admin.get("/admin_page")
 def get_admin_page():
-    restrito = '<a class="admin" href="admin.html">Área restrita</a>'
+    restrito = '<a class="link" href="admin.html">Área restrita</a>'
     return HTMLResponse(restrito, status_code=status.HTTP_200_OK)
 
 @admin.get("/users", response_class=JSONResponse)

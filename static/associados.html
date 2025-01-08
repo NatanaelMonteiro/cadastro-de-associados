@@ -8,118 +8,115 @@
     <link rel="stylesheet" href="/static/assets/css/main.css">
     <link rel="stylesheet" href="/static/assets/css/style.css">
 
-    <title> FENEPE-DF - Associados </title>
+    <title> FENEPE-DF - Segurança </title>
 
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/img/fenepe_icon.png">
     <link rel="canonical" href="index.html">
 </head>
 
 <body>
-
-    <header class="position-absolute z-3 mt-3 w-100" data-bs-theme="dark">
-        <nav class="navbar navbar-expand-xl" aria-label="Offcanvas navbar large">
-            <div class="container py-1">
-                <a href="./index.html" class="navbar-brand img-rounded">
-                    <img src="./assets/img/fenepe_icon.png" height="120" alt="logo">
+    <header class="position-absolute z-3 mt-3 px-5 w-100" data-bs-theme="dark">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a href="/static/index.html" class="navbar-brand img-rounded">
+                    <img src="/static/assets/img/fenepe_icon.png" width="100" alt="logo">
                 </a>
-                <div class="offcanvas offcanvas-end border-0 rounded-start-0 rounded-start-sm-4" tabindex="-1"
-                    id="offcanvasNavbar2" aria-labelledby="offcanvasNavbar2Label">
-                    <div class="offcanvas-header">
-                        <h5 class="offcanvas-title m-0" id="offcanvasNavbar2Label">
-                            <a class="navbar-brand" href="index.html">
-                                <img src="./assets/img/fenepe_icon.png" height="64" alt="logo">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                    aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div id="navbarText" class="container-fluid bg-blur py-3 mx-auto w-50 w-md-25 w-lg-100 navbar-collapse">
+                    <div class="col-4"></div>
+                    <ul
+                        class="navbar-nav align-items-center mx-auto w-50 w-md-25 w-lg-100 text-center gap-6 gap-lg-4 row-gap-3">
+                        <li class="nav-item w-100">
+                            <a href="index.html"
+                                class="px-3 text-white bg-primary-hover nav-link rounded-3 text-base leading-6 fw-semibold"
+                                aria-current="page">
+                                Home
                             </a>
-                        </h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                    </div>
-
-                    <div class="offcanvas-body">
-                        <ul class="navbar-nav align-items-xl-center flex-grow-1 column-gap-5 row-gap-3 row-gap-xl-3">
-                            <li class="nav-item ms-xl-auto">
-                                <a href="index.html"
-                                    class="px-3 text-white bg-primary-hover nav-link rounded-3 text-base leading-6 fw-semibold"
-                                    aria-current="page">
-                                    Home
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a href="seguranca.html"
-                                    class="px-3 text-white bg-primary-hover nav-link rounded-3 text-base leading-6 fw-semibold">
-                                    Segurança
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a href="associados.html"
-                                    class="px-3 text-white bg-primary-hover nav-link rounded-3 text-base leading-6 fw-semibold">
-                                    Associados
-                                </a>
-                            </li>
-
-                            <li id="login" class="nav-item ms-xl-auto">
-                                <a href="/user/logout"
-                                    class="logout px-3 bg-primary nav-link rounded-3 text-base leading-6 fw-semibold text-center">
-                                    Sair
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+                        </li>
+                        <li class="nav-item w-100">
+                            <a href="seguranca.html"
+                                class="px-3 text-white bg-primary-hover nav-link rounded-3 text-base leading-6 fw-semibold">
+                                Segurança
+                            </a>
+                        </li>
+                        <li class="nav-item w-100">
+                            <a href="associados.html"
+                                class="px-3 text-white bg-primary-hover nav-link rounded-3 text-base leading-6 fw-semibold">
+                                Associados
+                            </a>
+                        </li>
+                        <li class="nav-item w-100 ">
+                            <div class="px-4 nav-link text-white bg-primary rounded-3 fw-semibold"
+                                hx-get="/user/is_login" hx-trigger="load">
+                                <!-- Exibir botão Login/Logout -->
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>
     </header>
 
-    <div class="py-8 position-relative h-100 top-0 rounded-bottom-3 rounded-sm-4 rounded-xl-5 m-0 m-sm-2 m-xl-3 shadow">
+    <div class="overflow-hidden py-6 position-relative rounded-bottom-3 rounded-md-4 m-0 m-sm-2 m-xl-3 shadow">
         <img src="./assets/img/armas.png" class="position-absolute z-n1 top-0 h-100 w-100 object-fit-cover"
             alt="Meeting">
+
         <div class="position-absolute z-n1 top-0 h-100 w-100 bg-dark"
             style="opacity: 0.85; mix-blend-mode: multiply; filter: contrast(1.15) brightness(0.85);">
         </div>
 
-        <div class="position-absolute z-1 h-100 top-0 mt-3 w-100">
-            <div class="d-flex h-100 align-items-end">
-                <div class="col-lg-5 col-md-8 mx-auto mb-5 text-start">
-                    <p class="mt-5 text-white text-lg" data-aos-delay="100" data-aos="fade" data-aos-duration="3000">
-                        Área de acesso restrito aos administradores do Sistema.
-                    </p>
-                </div>
+        <div class="position-absolute z-0 top-0 h-100 w-100">
+            <div class="container h-100 d-flex align-items-center">
             </div>
+        </div>
+    </div>
 
-            <div class="w-100 d-flex text-center">
+    <div class="position-absolute z-1 h-100 top-0 mt-3 w-100">
+        <div class="d-flex h-50 align-items-end">
+            <div class="col-lg-5 col-md-8 mx-auto mb-3 text-center">
+                <p class="mt-5 text-white text-lg">
+                    Área gestão dos associados do sistema
+                </p>
+            </div>
+        </div>
 
-                <div hx-ext="client-side-templates" class="col-lg-5 col-md-8 mx-auto text-start">
-                    <div id="slot-lista" class="w-100 py-5" hx-get="/admin/users" hx-trigger="load"
-                        mustache-array-template="users-template">
-                        <!-- A listagem vai ser exibida aqui. -->
-                    </div>
+        <div class="w-100 d-flex text-center">
 
-                    <template id="users-template">
-                        <h4 class="pb-3">Usuários cadastrados no sistema:</h4>
-                        <table class="table table-striped table-dark">
-                            <thead>
-                                <tr>
-                                    <th>Email</th>
-                                    <th class="w-1">Permissões</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <!-- {{#data}} -->
-                                <tr>
-                                    <td title="{{id}}" class="text-lowercase">{{username}}</td>
-                                    <td class="text-uppercase">{{permissions}}</td>
-                                </tr>
-                                <!-- {{/data}} -->
-
-                                <!-- {{^data}} -->
-                                <tr>
-                                    <td class="py-3 text-warning" colspan="8">Não há usuários cadastrados.</td>
-                                </tr>
-                                <!-- {{/data}} -->
-                            </tbody>
-                        </table>
-                    </template>
+            <div hx-ext="client-side-templates" class="col-lg-5 col-md-8 mx-auto text-start">
+                <div id="slot-lista" class="w-100 py-5" hx-get="/admin/users" hx-trigger="load"
+                    mustache-array-template="users-template">
+                    <!-- A listagem vai ser exibida aqui. -->
                 </div>
+
+                <template id="users-template">
+                    <p class="pb-3 text-lg text-center">Lista de Assosciados</p>
+                    <table class="table table-striped table-dark">
+                        <thead>
+                            <tr>
+                                <th>Email</th>
+                                <th class="w-1">Telefone</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- {{#data}} -->
+                            <tr>
+                                <td title="{{id}}" class="text-lowercase">{{username}}</td>
+                                <td>(61) 98765-4321</td>
+                            </tr>
+                            <!-- {{/data}} -->
+
+                            <!-- {{^data}} -->
+                            <tr>
+                                <td class="py-3 text-warning" colspan="8">Não há usuários cadastrados.</td>
+                            </tr>
+                            <!-- {{/data}} -->
+                        </tbody>
+                    </table>
+                </template>
             </div>
         </div>
     </div>

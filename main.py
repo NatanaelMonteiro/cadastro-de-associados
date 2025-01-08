@@ -19,9 +19,9 @@ app = FastAPI(
 
 app.mount("/static", StaticFiles(directory="static", html="True"), name="static")
 
-app.include_router(admin)
 app.include_router(user)
 app.include_router(api)
+app.include_router(admin)
 
 
 @app.exception_handler(HTTPException)
