@@ -38,11 +38,10 @@ def user_register(
         key="access_token",
         value="Bearer {}".format(jsonable_encoder(jwt_token)),
         httponly=True,
-        secure=True,
+        secure=False,
         max_age=(2 * 3600),
         expires=(2 * 3600),
         samesite="lax",
-        path="/",  # para o site todo
     )
     return response
 
@@ -71,11 +70,10 @@ def user_register(
         key="access_token",
         value="Bearer {}".format(jsonable_encoder(jwt_token)),
         httponly=True,
-        secure=True,
+        secure=False,
         max_age=(2 * 3600),
         expires=(2 * 3600),
         samesite="lax",
-        path="/",  # para o site todo
     )
     return response
 

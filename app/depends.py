@@ -28,7 +28,6 @@ async def get_body(request: Request):
             body = dict(l.split("=") for l in lista)
         except:
             body = {}
-
     return body
 
 
