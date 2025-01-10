@@ -8,11 +8,9 @@ class CommonBase(object):
             for key, value in form_data.items():
                 setattr(self, key, value)
 
-    @classmethod
     def as_dict(self):
         return {c.name: getattr(self, c.name) for c in self.__table__.columns}
     
-    @classmethod
     def to_number(self, text):
         return ''.join(c for c in str(text) if c.isdigit())
 

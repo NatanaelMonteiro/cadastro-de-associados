@@ -63,7 +63,7 @@
     </header>
 
     <div class="overflow-hidden py-6 position-relative rounded-bottom-3 rounded-md-4 m-0 m-sm-2 m-xl-3 shadow">
-        <img src="./assets/img/armas.png" class="position-absolute z-n1 top-0 h-100 w-100 object-fit-cover"
+        <img src="/static/assets/img/armas.png" class="position-absolute z-n1 top-0 h-100 w-100 object-fit-cover"
             alt="Meeting">
 
         <div class="position-absolute z-n1 top-0 h-100 w-100 bg-dark"
@@ -80,39 +80,42 @@
         <div class="d-flex h-50 align-items-end">
             <div class="col-lg-5 col-md-8 mx-auto mb-3 text-center">
                 <p class="mt-5 text-white text-lg">
-                    Área gestão dos associados do sistema
+                    Lista de associados cadastrados no sistema
                 </p>
             </div>
         </div>
 
         <div class="w-100 d-flex text-center">
 
-            <div hx-ext="client-side-templates" class="col-lg-5 col-md-8 mx-auto text-start">
-                <div id="slot-lista" class="w-100 py-5" hx-get="/admin/users" hx-trigger="load"
+            <div hx-ext="client-side-templates" class="col-lg-8 col-md-10 mx-auto text-start">
+                <div id="slot-lista" class="w-100 py-5" hx-get="/admin/members" hx-trigger="load"
                     mustache-array-template="users-template">
                     <!-- A listagem vai ser exibida aqui. -->
                 </div>
 
                 <template id="users-template">
-                    <p class="pb-3 text-lg text-center">Lista de Assosciados</p>
                     <table class="table table-striped table-dark">
                         <thead>
                             <tr>
+                                <th>Nome</th>
                                 <th>Email</th>
-                                <th class="w-1">Telefone</th>
+                                <th>CPF</th>
+                                <th>Telefone</th>
                             </tr>
                         </thead>
                         <tbody>
                             <!-- {{#data}} -->
                             <tr>
-                                <td title="{{id}}" class="text-lowercase">{{username}}</td>
-                                <td>(61) 98765-4321</td>
+                                <td title="{{id}}" class="text-uppercase">{{nome}}</td>
+                                <td class="text-lowercase" >{{email}}</td>
+                                <td>{{cpf}}</td>
+                                <td>{{telefone}}</td>
                             </tr>
                             <!-- {{/data}} -->
 
                             <!-- {{^data}} -->
                             <tr>
-                                <td class="py-3 text-warning" colspan="8">Não há usuários cadastrados.</td>
+                                <td class="py-3 text-warning" colspan="8">Não há cadastros com as características informadas.</td>
                             </tr>
                             <!-- {{/data}} -->
                         </tbody>
@@ -125,7 +128,7 @@
     <div class="toast-container position-fixed bottom-0 end-0 p-3">
         <div id="toast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
             <div id="toast-header" class="toast-header">
-                <strong id="title-msg" class="me-auto">Aviso</strong>
+                <strong id="title-msg" class="me-auto text-white">Aviso</strong>
                 <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
             </div>
             <div class="toast-body">

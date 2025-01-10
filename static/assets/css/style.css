@@ -30,7 +30,7 @@ body {
   z-index: 2000 !important;
 }
 
-@media screen and (width >= 762px) {
+@media screen and (width >=762px) {
   .w-md-25 {
     width: 25% !important;
   }
@@ -42,14 +42,14 @@ body {
     padding-bottom: 30px !important;
     background-color: rgba(0, 0, 0, 0.3);
     border: solid 0.3px rgba(0, 0, 0, 0.85);
-    box-shadow: 2px 2px 10px -5px rgba(255,255,255,0.1);
+    box-shadow: 2px 2px 10px -5px rgba(255, 255, 255, 0.1);
     border-radius: 15px;
     backdrop-filter: blur(2px);
     -webkit-backdrop-filter: blur(2px);
   }
 }
 
-@media screen and (width >= 992px) {
+@media screen and (width >=992px) {
   .w-lg-100 {
     width: 100% !important;
   }
@@ -80,6 +80,7 @@ button.bs-placeholder {
 }
 
 .link {
+  padding: 10px 30px;
   text-decoration: none;
   color: rgb(var(--bs-white-rgb));
 }
@@ -87,6 +88,12 @@ button.bs-placeholder {
 .link:hover,
 .btn:hover {
   text-shadow: 0px 0px 9px rgba(255, 255, 255, 0.78);
+}
+
+a,
+.link:hover,
+.btn:hover {
+  cursor: pointer !important;
 }
 
 .about {

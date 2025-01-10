@@ -35,7 +35,7 @@
 
                 <div id="navbarText"
                     class="container-fluid bg-blur py-3 mx-auto w-50 w-md-25 w-lg-100 navbar-collapse collapse">
-                    <ul class="navbar-nav align-items-center mx-auto w-50 w-md-25 w-lg-100 text-center gap-3 row-gap-3">
+                    <ul class="navbar-nav align-items-center mx-auto w-50 w-md-25 w-lg-100 text-center gap-4 row-gap-3">
                         <li class="nav-item w-100">
                             <a href="index.html"
                                 class="px-3 text-white bg-primary-hover nav-link rounded-3 text-base leading-6 fw-semibold"
@@ -66,8 +66,8 @@
                         </li>
 
                         <li class="nav-item w-100">
-                            <div hx-get="/admin/admin_page" hx-trigger="load"
-                                class="px-3 nav-link text-white bg-primary-hover rounded-3 leading-6 fw-semibold">
+                            <div hx-get="/admin/is_admin" hx-trigger="load"
+                                hx-ext="client-side-templates" mustache-array-template="restrito">
                                 <!-- Área restrita -->
                             </div>
                         </li>
@@ -80,6 +80,12 @@
                         </li>
 
                     </ul>
+                    <template id="restrito">
+                        <a href="admin.html"
+                            class="px-3 nav-link text-white bg-primary-hover rounded-3 leading-6 fw-semibold">
+                            Área&nbsp;restrita
+                        </a>
+                    </template>
                 </div>
             </div>
             </div>
@@ -458,6 +464,8 @@
     <script src="https://unpkg.com/htmx.org@1.9.10"
         integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC"
         crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/htmx.org/dist/ext/client-side-templates.js"></script>
+    <script src="https://unpkg.com/mustache@latest"></script>
     <script src="./assets/libraries/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="./assets/libraries/aos/aos.js"></script>
     <script src="./assets/js/scripts.js"></script>

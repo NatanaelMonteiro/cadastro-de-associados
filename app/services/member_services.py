@@ -36,21 +36,18 @@ class MemberServices:
     def as_dict(self, rows):
         dados = [row._asdict() for row in rows]
         return dados
-    
-    #from DB
-    def get_me(self):
-        email = ""
-        member_on_db = (
-            self.db_session.query(MembersModel).filter_by(email=email).first()
-        )
-        return member_on_db
 
-    #from DB
     def get_member(self, email):
-        member_on_db = (
+        member = (
             self.db_session.query(MembersModel).filter_by(email=email).first()
         )
-        return member_on_db
+        return member
+    
+    def get_members(self):
+        members = (
+            self.db_session.query(MembersModel).all()
+        )
+        return members
 
     # registrar membro no sistema
     def member_register(self, user, form_data):
@@ -77,5 +74,5 @@ class MemberServices:
                 MembersModel.email == user).values(form_data)
             self.db_session.execute(query)
             self.db_session.commit()
-        except IntegrityError as e:
+        except IntegrityError:
             raise user_update_error

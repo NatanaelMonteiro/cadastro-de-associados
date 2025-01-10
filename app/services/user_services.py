@@ -2,6 +2,7 @@ from datetime import datetime, timedelta, timezone
 from fastapi import status
 from fastapi.exceptions import HTTPException
 from sqlalchemy.orm import Session
+from sqlalchemy import update
 from sqlalchemy.exc import IntegrityError
 from passlib.context import CryptContext
 from jose import jwt, JWTError
@@ -55,11 +56,21 @@ class UserServices:
         )
         return user_on_db
 
+    # def get_user_by_id(self, id):
+    #     user = (
+    #         self.db_session.query(UserModel).filter_by(id=id).first()
+    #     )
+    #     return user
+
     def get_users_list(self):
-        users = self.db_session.query(
-            UserModel.id, UserModel.username, UserModel.permissions
-        ).all()
-        
+        users = (
+            self.db_session.query(
+                UserModel.id, UserModel.username, UserModel.permissions
+            )
+            .order_by(UserModel.permissions.desc(), UserModel.username)
+            .all()
+        )
+
         return self.as_dict(users)
 
     # registrar usuário do sistema
@@ -141,3 +152,15 @@ class UserServices:
 
         else:
             raise invalid_token
+
+    def delete_user(self, username):
+        try:
+            self.db_session.query(UserModel).filter_by(username=username).delete()
+            self.db_session.commit()
+        except:
+            raise invalid_user_name
+
+    def update_user(self, user: UserModel):
+        query = update(UserModel).where(id == user.id).values(user.as_dict())
+        self.db_session.execute(query)
+        self.db_session.commit()
