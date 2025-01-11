@@ -1,3 +1,4 @@
+from typing import Mapping
 from fastapi import APIRouter, Request, Depends, status
 from fastapi.responses import JSONResponse, HTMLResponse
 from fastapi.exceptions import HTTPException
@@ -29,6 +30,13 @@ def is_admin():
 def get_members_list(db_session: Session = Depends(get_db_session)):
     service = MemberServices(db_session=db_session)
     return service.get_members()
+
+
+@admin.get("/members/{email}", response_class=JSONResponse)
+def get_member(email, db_session: Session = Depends(get_db_session)):
+    service = MemberServices(db_session=db_session)
+    member = service.get_member(email)
+    return member
 
 
 @admin.get("/users", response_class=JSONResponse)

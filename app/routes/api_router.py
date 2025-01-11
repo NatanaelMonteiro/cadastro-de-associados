@@ -29,7 +29,7 @@ def member_register(
 
 
 @api.put("/members")
-def member_register(
+def member_update(
     request: Request,
     form_member=Depends(get_body),
     db_session: Session = Depends(get_db_session),
@@ -55,12 +55,6 @@ def member_by_email(request: Request, db_session: Session = Depends(get_db_sessi
         return HTMLResponse(CADAS_URL)
     else:
         return HTMLResponse(EDIT_URL)
-
-
-@api.get("/members/{email}", response_class=PlainTextResponse)
-def get_member(email, db_session: Session = Depends(get_db_session)):
-    service = MemberServices(db_session=db_session)
-    return service.get_member(email)
 
 
 @api.get("/user_name", response_class=PlainTextResponse)

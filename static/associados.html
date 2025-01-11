@@ -4,12 +4,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title> FENEPE-DF - Segurança </title>
+
     <link rel="stylesheet" href="/static/assets/libraries/aos/aos.css">
     <link rel="stylesheet" href="/static/assets/css/main.css">
     <link rel="stylesheet" href="/static/assets/css/style.css">
-
-    <title> FENEPE-DF - Segurança </title>
-
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/img/fenepe_icon.png">
     <link rel="canonical" href="index.html">
 </head>
@@ -101,21 +103,29 @@
                                 <th>Email</th>
                                 <th>CPF</th>
                                 <th>Telefone</th>
+                                <th>&nbsp;</th>
                             </tr>
                         </thead>
                         <tbody>
                             <!-- {{#data}} -->
                             <tr>
                                 <td title="{{id}}" class="text-uppercase">{{nome}}</td>
-                                <td class="text-lowercase" >{{email}}</td>
+                                <td class="text-lowercase">{{email}}</td>
                                 <td>{{cpf}}</td>
                                 <td>{{telefone}}</td>
+                                <td>
+                                    <a href="/static/detalhar.html?email={{email}}" data-bs-toggle="tooltip"
+                                        data-bs-placement="top" title="Consultar detalhes do associado">
+                                        <i class="material-symbols-outlined">contact_page</i></a>
+                                    </a>
+                                </td>
                             </tr>
                             <!-- {{/data}} -->
 
                             <!-- {{^data}} -->
                             <tr>
-                                <td class="py-3 text-warning" colspan="8">Não há cadastros com as características informadas.</td>
+                                <td class="py-3 text-warning" colspan="8">Não há cadastros com as características
+                                    informadas.</td>
                             </tr>
                             <!-- {{/data}} -->
                         </tbody>

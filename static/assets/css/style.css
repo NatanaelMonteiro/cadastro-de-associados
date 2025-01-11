@@ -75,9 +75,15 @@ button.bs-placeholder {
   color: #f00 !important;
 }
 
-.email {
+.fake-input {
   padding: 0.375rem 0.75rem;
 }
+
+.fake-input.disabled {
+  color: rgb(var(--bs-white-rgb));
+  background-color: var(--bs-secondary-bg);
+}
+
 
 .link {
   padding: 10px 30px;

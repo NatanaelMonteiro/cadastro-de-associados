@@ -10,11 +10,9 @@ from app.routes.admin_router import admin
 
 app = FastAPI(
     title="Cadastro de Prestadores de Serviços",
-    version="0.0.1",
+    version="1.0.0",
     description="Protótipo de uma API para gerir um cadastro de prestadores de serviços freelancers. ",
 )
-
-app = FastAPI()
 
 
 app.mount("/static", StaticFiles(directory="static", html="True"), name="static")
@@ -40,8 +38,3 @@ def get_root():
 @app.get("/info", response_class=PlainTextResponse)
 def get_info():
     return f"{app.title}, versão {app.version}\nDescrição: {app.description}"
-
-
-@app.get("/aberto", response_class=PlainTextResponse)
-def rota_aberta():
-    return "Este endpoint é aberto para acesso público"

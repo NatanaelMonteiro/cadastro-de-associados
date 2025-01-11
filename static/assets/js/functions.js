@@ -102,8 +102,6 @@ function confirm(evt) {
 
         msg = `${msg} ${(evt.detail.question).toUpperCase()}?`
 
-        // msg = `${evt.currentTarget.msg} ${(evt.detail.question).toUpperCase()}?`
-
         const isWarning = (evt.detail.verb == "delete");
 
         Swal.fire({

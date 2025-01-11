@@ -47,7 +47,7 @@ def user_register(
 
 
 @user.post("/login")
-def user_register(
+def login(
     form_user: OAuth2PasswordRequestForm = Depends(),
     db_session: Session = Depends(get_db_session),
 ):
@@ -104,7 +104,7 @@ async def is_logged(request: Request, db_session=Depends(get_db_session)):
 
 
 @user.get("/welcome", response_class=HTMLResponse)
-async def is_login(request: Request, db_session=Depends(get_db_session)):
+async def welcome(request: Request, db_session=Depends(get_db_session)):
     try:
         token_verifier(request)
         return WELCOME_URL
