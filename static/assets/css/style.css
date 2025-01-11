@@ -86,7 +86,7 @@ button.bs-placeholder {
 
 
 .link {
-  padding: 10px 30px;
+  padding: 7px 30px;
   text-decoration: none;
   color: rgb(var(--bs-white-rgb));
 }
@@ -105,4 +105,10 @@ a,
 .about {
   text-decoration: none;
   color: rgba(var(--bs-white-rgb));
+}
+
+@media screen and (width < 762px) {
+  .link {
+    padding: 7px;
+  }
 }
