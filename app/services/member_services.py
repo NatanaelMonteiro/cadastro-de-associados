@@ -25,7 +25,8 @@ user_update_error = HTTPException(
 
 
 invalid_fields_len = HTTPException(
-    status_code=status.HTTP_400_BAD_REQUEST, detail="Todos os campos do formulário devem ser preenchidos."
+    status_code=status.HTTP_400_BAD_REQUEST,
+    detail="Todos os campos do formulário devem ser preenchidos.",
 )
 
 
@@ -38,22 +39,27 @@ class MemberServices:
         return dados
 
     def get_member(self, email):
-        member = (
-            self.db_session.query(MembersModel).filter_by(email=email).first()
-        )
+        member = self.db_session.query(MembersModel).filter_by(email=email).first()
         return member
-    
+
     def get_members(self):
+        members = self.db_session.query(MembersModel).all()
+        return members
+
+    def get_members_search(self, param):
+        search = "%{}%".format(param)
         members = (
-            self.db_session.query(MembersModel).all()
+            self.db_session.query(MembersModel)
+            .filter(MembersModel.cpf.like(search) | MembersModel.nome.like(search))
+            .all()
         )
         return members
 
     # registrar membro no sistema
     def member_register(self, user, form_data):
-        if (len(form_data) < 14):
+        if len(form_data) < 14:
             raise invalid_fields_len
-        
+
         member_model = MembersModel()
         member_model.from_dict(form_data)
         member_model.email = user
@@ -66,12 +72,13 @@ class MemberServices:
 
     # atualizar membro no sistema
     def member_update(self, user, form_data):
-        if (len(form_data) < 14):
+        if len(form_data) < 14:
             raise invalid_fields_len
-        
+
         try:
-            query = update(MembersModel).where(
-                MembersModel.email == user).values(form_data)
+            query = (
+                update(MembersModel).where(MembersModel.email == user).values(form_data)
+            )
             self.db_session.execute(query)
             self.db_session.commit()
         except IntegrityError:

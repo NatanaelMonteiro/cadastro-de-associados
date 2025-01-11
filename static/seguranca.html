@@ -8,6 +8,7 @@
 
     <title> FENEPE-DF - Segurança </title>
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.x/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/static/assets/libraries/aos/aos.css">
     <link rel="stylesheet" href="/static/assets/css/main.css">
     <link rel="stylesheet" href="/static/assets/css/style.css">
@@ -80,69 +81,77 @@
         </div>
     </div>
 
-    <div class="position-absolute z-1 h-50 top-0 mt-5 w-100">
-        <div class="d-flex h-50 mt-5 align-items-end">
-            <div class="col-lg-5 col-md-8 mx-auto mb-2 mt-5 text-center">
-                <p class="mt-2 text-white text-lg">
-                    Gestão de acessos e permissões de usuários do sistema
-                </p>
-            </div>
-        </div>
-
-        <div class="w-100 d-flex text-center">
-            <div hx-ext="client-side-templates" class="col-lg-6 col-md-9 mx-auto text-start">
-                <div id="admin-settings" class="w-100 py-5" hx-get="/admin/users" hx-trigger="load"
-                    mustache-array-template="users-template">
-                    <!-- A listagem vai ser exibida aqui. -->
+    <div class="container">
+        <div class="position-absolute z-1 h-50 top-0 mt-5 w-100">
+            <div class="d-flex h-50 mt-5 align-items-end">
+                <div class="col-lg-5 col-md-8 mx-auto mb-2 mt-5 text-center">
+                    <p class="mt-2 text-white text-lg">
+                        Gestão de acessos e permissões de usuários do sistema
+                    </p>
                 </div>
+            </div>
 
-                <template id="users-template">
-                    <table class="table table-striped table-dark">
-                        <thead>
-                            <tr>
-                                <th>Email</th>
-                                <th class="w-1">Permissões</th>
-                                <th>&nbsp;</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- {{#data}} -->
-                            <tr>
-                                <td title="{{id}}" class="text-lowercase">{{username}}</td>
-                                <td class="text-uppercase">{{permissions}}</td>
-                                <td>
-                                    <div class="d-flex flex-row flex-nowrap justify-content-end">
-                                        <a id="admin" class="ps-3" hx-confirm="{{username}}"
-                                            hx-patch="/admin/users/{{username}}/admin" hx-target="closest table"
-                                            hx-swap="outerHTML swap:0.5s" data-bs-toggle="tooltip"
-                                            data-bs-placement="right" title="Conceder poderes de Administrador">
-                                            <i class="material-symbols-outlined">admin_panel_settings</i></a>
+            <div class="w-100 d-flex text-center">
+                <div hx-ext="client-side-templates" class="col-lg-6 col-md-9 mx-auto text-start">
+                    <div id="admin-settings" class="w-100 py-5" hx-get="/admin/users" hx-trigger="load"
+                        mustache-array-template="users-template">
+                        <!-- A listagem vai ser exibida aqui. -->
+                    </div>
 
-                                        <a id="remove" class="ps-3" hx-confirm="{{username}}"
-                                            hx-patch="/admin/users/{{username}}/admin/remove" hx-target="closest table"
-                                            hx-swap="outerHTML swap:0.5s" data-bs-toggle="tooltip"
-                                            data-bs-placement="right" title="Remover permissão de Administrador">
-                                            <i class="material-symbols-outlined">encrypted_minus_circle</i></a>
+                    <template id="users-template">
+                        <div class="table-responsive">
+                            <table class="table table-striped table-dark">
+                                <thead class="text-body-emphasis">
+                                    <tr>
+                                        <th>Email</th>
+                                        <th>Permissões</th>
+                                        <th>&nbsp;</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- {{#data}} -->
+                                    <tr>
+                                        <td data-th="Email" title="{{id}}" class="text-lowercase">{{username}}</td>
+                                        <!-- {{#permissions}} -->
+                                        <td data-th="Permissões" class="text-uppercase">{{permissions}}</td>
+                                        <!-- {{/permissions}} -->
+                                        <!-- {{^permissions}} -->
+                                        <td data-th="Permissões" class="text-uppercase">NÃO POSSUI</td>
+                                        <!-- {{/permissions}} -->
+                                        <td data-th="" class="d-flex flex-row flex-nowrap justify-content-between">
+                                            <a id="admin" class="ps-3" hx-confirm="{{username}}"
+                                                hx-patch="/admin/users/{{username}}/admin" hx-target="closest table"
+                                                hx-swap="outerHTML swap:0.5s" data-bs-toggle="tooltip"
+                                                data-bs-placement="right" title="Conceder poderes de Administrador">
+                                                <i class="material-symbols-outlined">admin_panel_settings</i></a>
 
-                                        <a id="delete" class="ps-3" hx-confirm="{{username}}"
-                                            hx-delete="/admin/users/{{username}}" hx-target="closest tr"
-                                            hx-swap="outerHTML swap:0.5s" data-bs-toggle="tooltip"
-                                            data-bs-placement="right" title="Excluir usuário">
-                                            <i class="material-symbols-outlined">delete</i></a>
-                                    </div>
-                                </td>
+                                            <a id="remove" class="ps-3" hx-confirm="{{username}}"
+                                                hx-patch="/admin/users/{{username}}/admin/remove"
+                                                hx-target="closest table" hx-swap="outerHTML swap:0.5s"
+                                                data-bs-toggle="tooltip" data-bs-placement="right"
+                                                title="Remover permissão de Administrador">
+                                                <i class="material-symbols-outlined">encrypted_minus_circle</i></a>
 
-                            </tr>
-                            <!-- {{/data}} -->
+                                            <a id="delete" class="ps-3" hx-confirm="{{username}}"
+                                                hx-delete="/admin/users/{{username}}" hx-target="closest tr"
+                                                hx-swap="outerHTML swap:0.5s" data-bs-toggle="tooltip"
+                                                data-bs-placement="right" title="Excluir usuário">
+                                                <i class="material-symbols-outlined">delete</i></a>
+                                        </td>
 
-                            <!-- {{^data}} -->
-                            <tr>
-                                <td class="py-3 text-warning" colspan="8">Não há usuários cadastrados.</td>
-                            </tr>
-                            <!-- {{/data}} -->
-                        </tbody>
-                    </table>
-                </template>
+                                    </tr>
+                                    <!-- {{/data}} -->
+
+                                    <!-- {{^data}} -->
+                                    <tr>
+                                        <td class="py-3 text-warning" colspan="8">Não há usuários cadastrados.</td>
+                                    </tr>
+                                    <!-- {{/data}} -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </template>
+                </div>
             </div>
         </div>
     </div>
@@ -164,7 +173,8 @@
         crossorigin="anonymous"></script>
     <script src="https://unpkg.com/htmx.org/dist/ext/client-side-templates.js"></script>
     <script src="https://unpkg.com/mustache@latest"></script>
-    <script src="./assets/libraries/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- <script src="./assets/libraries/bootstrap/js/bootstrap.bundle.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.x/dist/js/bootstrap.bundle.min.js"></script>
     <script src="./assets/libraries/aos/aos.js"></script>
     <script src="./assets/js/scripts.js"></script>
     <script src="./assets/js/color-modes.js"></script>

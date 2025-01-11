@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+
     <title> FENEPE-DF - Segurança </title>
 
     <link rel="stylesheet" href="/static/assets/libraries/aos/aos.css">
@@ -87,8 +87,18 @@
             </div>
         </div>
 
-        <div class="w-100 d-flex text-center">
+        <div class="d-flex w-100 ms-2 px-2 justify-content-center">
+            <fieldset class="d-flex flex-nowrap col-12 col-md-5">
+                <input type="text" class="form-control" id="search" name="search" aria-describedby="search"
+                    placeholder="Digite parte do nome ou do CPF">
+                <a hx-get="/admin/members/search" hx-include="#search" hx-target="#slot-lista"
+                    hx-ext="client-side-templates" mustache-array-template="users-template">
+                    <i class="px-2 fx-2 material-symbols-outlined">search</i>
+                </a>
+            </fieldset>
+        </div>
 
+        <div class="w-100 d-flex text-center">
             <div hx-ext="client-side-templates" class="col-lg-8 col-md-10 mx-auto text-start">
                 <div id="slot-lista" class="w-100 py-5" hx-get="/admin/members" hx-trigger="load"
                     mustache-array-template="users-template">

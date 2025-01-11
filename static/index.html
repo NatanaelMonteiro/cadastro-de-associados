@@ -67,8 +67,8 @@
 
                         <li class="nav-item w-100">
                             <div hx-get="/admin/is_admin" hx-trigger="load"
-                                hx-ext="client-side-templates" mustache-array-template="restrito">
-                                <!-- Área restrita -->
+                                hx-ext="client-side-templates" mustache-array-template="admin-template">
+                                <!-- Administrativo -->
                             </div>
                         </li>
 
@@ -80,10 +80,10 @@
                         </li>
 
                     </ul>
-                    <template id="restrito">
+                    <template id="admin-template">
                         <a href="admin.html"
                             class="px-3 nav-link text-white bg-primary-hover rounded-3 leading-6 fw-semibold">
-                            Área&nbsp;restrita
+                            Administrativo
                         </a>
                     </template>
                 </div>

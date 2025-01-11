@@ -30,11 +30,49 @@ body {
   z-index: 2000 !important;
 }
 
+.material-symbols-outlined.fx-2 {
+  font-size: 2rem !important
+}
+
+@media screen and (width < 762px) {
+  table.table thead {
+    display: none;
+  }
+
+  table.table tbody tr {
+    display: block;
+  }
+
+  table.table tbody td {
+    display: block;
+  }
+
+  .table {
+    min-width: 80vw;
+    padding-left: 10px;
+    margin: 0 5px;
+  }
+
+  .table tbody td[data-th]:before {
+    content: attr(data-th) ": ";
+    text-transform: uppercase;
+    width: 45%;
+    text-align: left;
+  }
+
+  .table tbody td[data-th]:last-child:before {
+    content: "";
+  }
+
+  td:last-child {
+    margin-bottom: 30px;
+}
+}
+
 @media screen and (width >=762px) {
   .w-md-25 {
     width: 25% !important;
   }
-
 }
 
 @media screen and (width < 992px) {
@@ -83,7 +121,6 @@ button.bs-placeholder {
   color: rgb(var(--bs-white-rgb));
   background-color: var(--bs-secondary-bg);
 }
-
 
 .link {
   padding: 7px 30px;

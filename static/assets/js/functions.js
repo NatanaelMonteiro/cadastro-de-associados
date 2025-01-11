@@ -20,11 +20,14 @@ document.addEventListener('htmx:afterRequest', evt => {
 })
 
 function setTooltips() {
-    let tooltips = document.querySelectorAll('[data-bs-toggle="tooltip"]');
-
-    for (let i = 0; i < tooltips.length; i++) {
-        let tooltip = new bootstrap.Tooltip(tooltips[i]);
-    }
+    document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(element => {
+        const tooltip = new bootstrap.Tooltip(element);
+        element.addEventListener('shown.bs.tooltip', () => {
+            setTimeout(() => {
+                tooltip.hide();
+            }, 2000);
+        });
+    });
 }
 
 function showToast(msg, warning) {
@@ -91,13 +94,13 @@ function confirm(evt) {
         let msg = ''
 
         if (evt.detail.elt.id == 'admin') {
-            msg = 'Você deseja realmente conceder poderes de Administrador para o usuário'
+            msg = 'Você deseja conceder poderes de Administrador para'
         } else if (evt.detail.elt.id == 'remove') {
-            msg = 'Você deseja mesmo retirar as permissões de administrador do usuário'
+            msg = 'Você deseja retirar as permissões de administrador de'
         } else if (evt.detail.elt.id == 'delete') {
             msg = 'Você deseja mesmo excluir do sistema o usuário'
         } else {
-            msg = 'Voce deseja mesmo aplicar essa alteração no cadastro de'
+            msg = 'Voce deseja aplicar essa alteração no cadastro de'
         }
 
         msg = `${msg} ${(evt.detail.question).toUpperCase()}?`

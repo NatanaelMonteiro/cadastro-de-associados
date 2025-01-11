@@ -3,7 +3,7 @@ from fastapi import APIRouter, Request, Depends, status
 from fastapi.responses import JSONResponse, HTMLResponse
 from fastapi.exceptions import HTTPException
 from sqlalchemy.orm import Session
-from app.depends import admin_verifier, get_db_session
+from app.depends import admin_verifier, get_db_session, get_body
 from app.services.user_services import UserServices
 from app.services.member_services import MemberServices
 
@@ -30,6 +30,13 @@ def is_admin():
 def get_members_list(db_session: Session = Depends(get_db_session)):
     service = MemberServices(db_session=db_session)
     return service.get_members()
+
+
+@admin.get("/members/search", response_class=JSONResponse)
+def get_members_list(search, db_session: Session = Depends(get_db_session)):
+    service = MemberServices(db_session=db_session)
+    members = service.get_members_search(search)
+    return members
 
 
 @admin.get("/members/{email}", response_class=JSONResponse)
