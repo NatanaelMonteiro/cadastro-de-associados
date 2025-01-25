@@ -4,7 +4,7 @@ typing_extensions==4.12.2
 uvicorn==0.32.0
 fastapi==0.94.0
 sqlalchemy==2.0.5.post1
-psycopg2==2.9.10
+psycopg2-binary==2.9.10
 alembic==1.10.2
 python-decouple==3.8
 passlib==1.7.4
